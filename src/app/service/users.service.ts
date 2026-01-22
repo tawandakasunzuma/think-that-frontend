@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
 import { userModal } from '../modals/user.modal';
 import { Observable } from 'rxjs';
-import { postModal } from '../modals/post.modal';
 
 // Make service available throughout app
 @Injectable({

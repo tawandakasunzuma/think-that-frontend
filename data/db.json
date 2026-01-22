@@ -1,0 +1,30 @@
+{
+    "users": [{
+        "id" : "1",
+        "firstName": "John",
+        "lastName": "Juice",
+        "role": "viewer",
+        "emailAddress": "john@juice.com",
+        "password": "1234"
+    },
+    {
+        "id" : "2",
+        "firstName": "Sarah",
+        "lastName": "Candy",
+        "role": "blogger",
+        "emailAddress": "sarah@candy.com",
+        "password": "2468" 
+    }],
+    "posts": [{
+      "postId": 1,
+      "title": "Welcome to my Blog",
+      "description": "This is my first post in 2026.",
+      "createdAt": "2026-01-22T15:50:00Z"
+    },
+    {
+      "postId": 2,
+      "title": "Learning JSON Server",
+      "description": "A guide on how to structure mock databases.",
+      "createdAt": "2026-01-22T16:00:00Z"
+    }]
+}
