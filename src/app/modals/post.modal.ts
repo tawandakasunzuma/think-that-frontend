@@ -2,5 +2,6 @@ export interface postModal {
     postId: Number,
     title: String,
     description: String,
-    createdAt: Date
+    createdAt: Date,
+    userId: Number // Foreign key
 } 

@@ -11,11 +11,13 @@ import { Observable } from 'rxjs';
 
 export class UsersService {
 
+  // API used to get users data
   private apiUrl = `${environment.apiUrl}/users`;
 
+  // Http is used to send requests to the backend
   constructor(private http: HttpClient) { }
 
-  // Create User
+  // Create user
   createUser (user: userModal) : Observable<userModal> {
     return this.http.post<userModal>(this.apiUrl, user)
   }
