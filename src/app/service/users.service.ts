@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../environments/environments';
-import { userModal } from '../modals/user.modal';
+import { UserModal } from '../modals/user.modal';
 import { Observable } from 'rxjs';
 
 // Make service available throughout app
@@ -18,27 +18,27 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   // Create user
-  createUser (user: userModal) : Observable<userModal> {
-    return this.http.post<userModal>(this.apiUrl, user)
+  createUser (user: UserModal) : Observable<UserModal> {
+    return this.http.post<UserModal>(this.apiUrl, user)
   }
 
   // Get user by ID
-  getUserById (id: Number) : Observable<userModal> {
-    return this.http.get<userModal>(`${this.apiUrl}/${id}`)
+  getUserById (id: Number) : Observable<UserModal> {
+    return this.http.get<UserModal>(`${this.apiUrl}/${id}`)
   }
 
   // Get all users
-  getAllUsers() : Observable<userModal[]> {
-    return this.http.get<userModal[]>(this.apiUrl)
+  getAllUsers() : Observable<UserModal[]> {
+    return this.http.get<UserModal[]>(this.apiUrl)
   }
 
   // Update user
-  updateUser(id: Number, user: userModal) : Observable<userModal> {
-    return this.http.patch<userModal>(`${this.apiUrl}/${id}`, user);
+  updateUser(id: Number, user: UserModal) : Observable<UserModal> {
+    return this.http.patch<UserModal>(`${this.apiUrl}/${id}`, user);
   }
 
   // Delete user
   deleteUser(id: Number) : void {
-    this.http.delete<userModal>(`${this.apiUrl}/${id}`);
+    this.http.delete<UserModal>(`${this.apiUrl}/${id}`);
   }
 }

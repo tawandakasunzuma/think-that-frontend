@@ -1,7 +1,7 @@
-export interface postModal {
-    postId: Number,
-    title: String,
-    description: String,
+export interface PostModal {
+    postId: number,
+    title: string,
+    description: string,
     createdAt: Date,
-    userId: Number // Foreign key
+    userId: number // Foreign key
 } 
