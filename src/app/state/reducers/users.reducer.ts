@@ -43,7 +43,7 @@ export const userReducer = createReducer(
   // Load user by ID success
   on(UserActions.loadUserByIdSuccess, (state, { user }) => ({
     ...state,
-    user,
+    selectedUser: user,
     loading: false,
   })),
 

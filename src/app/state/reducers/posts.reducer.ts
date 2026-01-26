@@ -43,7 +43,7 @@ export const postReducer = createReducer(
     // Load post by ID success
     on(PostActions.loadPostByIdSuccess, (state, { post }) => ({
         ...state,
-        post,
+        selectedPost: post,
         loading: false,
     })),
 
