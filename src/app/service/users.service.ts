@@ -23,7 +23,7 @@ export class UsersService {
   }
 
   // Get user by ID
-  getUserById (id: Number) : Observable<UserModal> {
+  getUserById (id: number) : Observable<UserModal> {
     return this.http.get<UserModal>(`${this.apiUrl}/${id}`)
   }
 
@@ -33,12 +33,12 @@ export class UsersService {
   }
 
   // Update user
-  updateUser(id: Number, user: UserModal) : Observable<UserModal> {
+  updateUser(id: number, user: UserModal) : Observable<UserModal> {
     return this.http.patch<UserModal>(`${this.apiUrl}/${id}`, user);
   }
 
   // Delete user
-  deleteUser(id: Number) : void {
+  deleteUser(id: number) : void {
     this.http.delete<UserModal>(`${this.apiUrl}/${id}`);
   }
 }

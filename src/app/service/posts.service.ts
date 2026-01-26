@@ -28,17 +28,17 @@ export class PostsService {
   };
 
   // Get posts by ID
-  getPostById(id: Number): Observable<PostModal | undefined> {
+  getPostById(id: number): Observable<PostModal> {
     return this.http.get<PostModal>(`${this.apiUrl}/${id}`)
   };
 
   // Update post
-  updatePost(id: Number, post: PostModal) : Observable<PostModal> {
+  updatePost(id: number, post: PostModal) : Observable<PostModal> {
     return this.http.patch<PostModal>(`${this.apiUrl}/${id}`, post);
   };
 
   // Delete post
-  deletePost(id: Number) : void | undefined {
+  deletePost(id: number) : void | undefined {
     this.http.delete<PostModal>(`${this.apiUrl}/${id}`);
   };
 }
