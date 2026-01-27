@@ -7,24 +7,29 @@ import { PostsService } from 'src/app/service/posts.service';
 
 @Injectable()
 export class PostsEffects {
-  // This creates an NgRx effect.
-  // An effect listens for actions and runs side effects (like API calls).
+
+  // This creates an NgRx effect
+  // An effect listens for actions and runs side effects, like API calls
   loadPosts$ = createEffect(() =>
-    // action$ is a stream of ALL actions in the app
+  
+    // action$ is a stream of all actions in the app
     this.action$.pipe(
+
       // Only react when the "loadPosts" action is dispatched
       ofType(PostActions.loadPosts),
 
       // mergeMap lets us run async work (like calling an API)
       mergeMap(() =>
+
         // Call the service method that gets all posts from the backend
         this.postService.getAllPosts().pipe(
+        
           // If the API call succeeds,
-          // turn the result into a SUCCESS action
+          // turn the result into a success action
           map((posts) => PostActions.loadPostsSuccess({ posts })),
 
           // If the API call fails,
-          // turn the error into a FAILURE action
+          // turn the error into a failure action
           catchError((error) => of(PostActions.loadPostsFailure({ error }))),
         ),
       ),
@@ -33,19 +38,23 @@ export class PostsEffects {
 
   // This effect loads ONE post by its ID
   loadPostsById$ = createEffect(() =>
+
     // Listen to all actions
     this.action$.pipe(
+    
       // Only react to the "loadPostById" action
       ofType(PostActions.loadPostById),
 
       // Grab the "id" from the action that was dispatched
       mergeMap(({ id }) =>
+
         // Call the service to get one post using the ID
         this.postService.getPostById(id).pipe(
-          // If successful, dispatch a SUCCESS action
+        
+          // If successful, dispatch a success action
           map((post) => PostActions.loadPostByIdSuccess({ post })),
 
-          // If it fails, dispatch a FAILURE action
+          // If it fails, dispatch a failure action
           catchError((error) => of(PostActions.loadPostByIdFailure({ error }))),
         ),
       ),
